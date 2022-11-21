@@ -52,6 +52,7 @@ h1#logo a{ display:block; height:61px; text-indent: -4000px; background:url(imag
 
 
 #main { width:100%; background:url(images/main.gif) repeat-x 0 0;}
+#main.checkOut { width:100%; background:url(images/main.gif) repeat-x 0 -47px;}
 
 .options { height:47px; white-space:nowrap; padding-top:3px;}
 .options .search{ float:left; padding:6px 0 0 0; background:url(images/border.gif) repeat-y right 0; height:33px; margin-right:12px;}
