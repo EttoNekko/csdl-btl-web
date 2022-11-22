@@ -69,7 +69,7 @@ form.signUpWindow {
     padding: 16px;
 }
 
-.signUpWindow .signUpForm :is(input[type=text], input[type=password]) {
+.signUpWindow .signUpForm input {
     width: 100%;
     padding: 15px;
     margin: 5px 0 10px 0;
@@ -78,7 +78,7 @@ form.signUpWindow {
     background: #f1f1f1;
     box-sizing: border-box;
 }
-.signUpWindow .signUpForm :is(input[type=text]:focus, input[type=password]:focus) {
+.signUpWindow .signUpForm input {
     background-color: #ddd;
     outline: none;
 }

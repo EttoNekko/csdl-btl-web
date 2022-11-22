@@ -1,6 +1,11 @@
 $(document).ready(function() {
+    let id;
+    (async() => id = await login(getData))();
+
     $("#top .shell #header #navigation ul li.account").click(function() {
-        $(".loginWindow").show();
+        if (id) {
+            return;
+        } else $(".loginWindow").show();
     });
     $(".loginWindow .action button.cancelbtn").click(function() {
         $(".loginWindow").hide();
@@ -15,3 +20,19 @@ $(document).ready(function() {
     });
 
 });
+
+async function getData() {
+    const res = await fetch("http://localhost:3000/account", {
+        method: 'GET'
+    });
+    const data = await res.json();
+    return data;
+}
+
+async function login(getData) {
+    const data = await getData();
+    if(data) {
+        $("#account").text(data.username);
+        return data.id;
+    }
+}

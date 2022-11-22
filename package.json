@@ -1,0 +1,25 @@
+{
+  "dependencies": {
+    "express": "^4.18.2",
+    "express-session": "^1.17.3",
+    "mysql2": "^2.3.3"
+  },
+  "name": "csdl-btl-web",
+  "description": "",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "test": "node --watch app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EttoNekko/csdl-btl-web.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/EttoNekko/csdl-btl-web/issues"
+  },
+  "homepage": "https://github.com/EttoNekko/csdl-btl-web#readme"
+}
