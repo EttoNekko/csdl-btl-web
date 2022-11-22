@@ -1,6 +1,6 @@
 $(document).ready(function(){
-  var count = $("#slider-holder ul").children().length;
-  var i = 1;
+  const count = $("#slider-holder ul").children().length;
+  let i = 1;
   $("#slider-nav a.prev").click(function (e) { 
     e.stopPropagation();
     $("#slider-holder ul li:nth-child(" + i + ")").fadeOut(400, function() {
