@@ -1,6 +1,5 @@
 .miniCart {
     position: fixed;
-    background-color: white;
     width: 600px;
     min-height: 41px;
     max-height: 600px;
@@ -8,6 +7,9 @@
     top: 20%;
     right: 50px; 
     z-index: 999;
+    background: #fbfbfb;
+    border-radius: 4px;
+    box-shadow: 0px 0px 5px 2px #9a9a9a;
 }
 
 ::-webkit-scrollbar {
@@ -48,6 +50,7 @@
     outline: none;
     padding: 5px 10px;
     margin-bottom: 5px;
+    background: transparent;
 }
 
 .miniCart .cart ul {
@@ -57,6 +60,9 @@
     flex-direction: column;
     overflow-y: auto;
     max-height: 200px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
 }
 .miniCart .cart ul::-webkit-scrollbar {
     width: 5px;
@@ -65,35 +71,57 @@
     font-size: 20px;
     color: black;
     margin: 2px;
-    border: 1px solid gray;
     padding: 8px 0;
+    box-sizing: border-box;
+}
+.miniCart .cart ul li + li {
+    border-top: 1px solid #f2f2f2;
 }
 .miniCart .cart ul li p{
     width: 62%;
     float: left;
+    padding-left: 10px;
+    box-sizing: inherit;
+    padding-top: 4px;
 } 
-.miniCart .cart ul li button{
+.miniCart .cart ul li div.itemRemover{
     width: 6%;
     float: left;
+    cursor: pointer;
 } 
+.miniCart .cart ul li div.itemRemover p{
+    width: 18px;
+    height: 19px;
+    text-align: center;
+    margin: 2px 0 0;
+    padding: 0;
+    background: #b7b7b7;
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 13px;
+    opacity: 0.70;
+}
 .miniCart .cart ul li p.price{
     width: 32%;
     float: left;
     text-align: center;
+    padding: 0;
+    padding-top: 4px;
 } 
 
 .cart .cartFooter {
     width: 100%;
     text-align: center;
-    margin-top: 20px;
+    margin: 20px 0;
 }
  
 .cart .cartFooter p {
     float: left;
     font-size: 22px;
-    font-weight: bold;
+    font-weight: 600;
 }
-.cart .cartFooter button {
+.cart .cartFooter a.checkOut {
     float: right;
     margin-right: 6px;
     padding: 0;
@@ -104,11 +132,12 @@
     font-size: 17px;
     font-weight: 700;
     text-transform: uppercase;
+    cursor: pointer;
 }
 .cart .cartFooter p.empty {
     color: #f44336;
     float: none;
     font-weight: 500;
-    position: relative;
-    bottom: 20px;
+    width: 90%;
+    padding-left: 15px;
 }

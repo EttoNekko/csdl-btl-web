@@ -2,4 +2,51 @@
     width: 100%;
     min-height: 300px;
     height: 300px;
+    padding-top: 20px;
+}
+
+.checkOutArea h3 {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+.checkOutArea h4 {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.checkOutArea .products table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin-bottom: 3em;
+}
+.products table thead {
+    background: #004284;
+}
+.products table thead th {
+    text-align: center;
+    padding: 7px;
+    font-size: 14px;
+    background: #212121;
+    color: #fff !important;
+    text-transform: capitalize;
+    border-right: 1px solid #ded2d2;
+}
+
+.checkOutArea .confirmDetail {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.checkOutArea .confirmDetail .total p {
+    font-size: 2em;
+    color: #212121;
+    font-weight: 600;
+    padding: 1em 0;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+}
+.checkOutArea .confirmDetail .information {
+    padding: 1em;
 }

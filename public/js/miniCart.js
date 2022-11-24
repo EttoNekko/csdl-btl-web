@@ -14,13 +14,13 @@ $(document).ready(function() {
         var price = $(".buyingWindow .details .description").find("span").eq(2).text();
         price = Number(price);
         total += price;
-        $(".miniCart .cart ul").append('<li><p>'+ brandName +'</p> <button type="button">X</button> <p class="price"><span>'+price+'</span> USD</p> </li>');
+        $(".miniCart .cart ul").append('<li><p>'+ brandName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> </li>');
         i++;
         checkEmpty();
         updatePrice();
         $(".buyingWindow").hide();
     });
-    $(".miniCart .cart ul").on("click", "li button", function() {
+    $(".miniCart .cart ul").on("click", "li div", function() {
         $(this).closest('li').remove();
         var price = Number($(this).siblings("p.price").find("span").text());
         total -=price;
@@ -32,8 +32,14 @@ $(document).ready(function() {
 });
 
 function checkEmpty() {
-    if(i===0) $(".cart .cartFooter").html('<p class="empty">You are poor</P>');
-    else $(".cart .cartFooter").html('<p>Total: <span>'+total+'</span> USD</p> <button class="checkOut">Check Out</button>');
+    if(i===0) {
+        $(".cart .cartFooter").html('<p class="empty">You are poor</P>');
+        $(".miniCart .cart ul").hide();
+    }
+    else {
+        $(".cart .cartFooter").html('<p>Total: <span>'+total+'</span> USD</p> <a class="checkOut" href="checkOut.html">Check Out</a>');
+        $(".miniCart .cart ul").show();
+    };
 }
 
 function updatePrice() {
