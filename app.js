@@ -1,7 +1,10 @@
 const express = require('express');
 const session = require('express-session');
+const bcrypt = require('bcrypt');
+const saltRounds = 10;
+
 const db = require('./connect');
-const port = process.env.PORT || 3000;
+const port = process.env.PORT;
 
 const app = express();
 
@@ -45,9 +48,10 @@ app.post('/register', (req, res) => {
   }
 
   const sql1 = 'INSERT INTO accounts (username, email, password) VALUES (?)';
-  const query1 = [data].map(field => [field.username, field.email, field.password]);
+  const hash = bcrypt.hashSync(data.password, saltRounds);
+  const query1 = [data].map(field => [field.username, field.email, hash]);
   
-  const sql2 = 'INSERT INTO customers (name, phoneNumber, address, creditNumber, replyFrom) VALUES (?)';
+  const sql2 = 'INSERT INTO customers (name, phoneNumber, address, creditCard, supportAgent) VALUES (?)';
   const employeeID = Math.floor(Math.random() * 3 + 1);
   const query2 = [data].map(field => [field.name, field.phone, field.address, field.credit, employeeID]);
 
@@ -68,9 +72,9 @@ app.post('/login', (req, res) => {
   const username = req.body.username;
   const password = req.body.password;
   if (username && password) {
-		db.query('SELECT customerNumber FROM accounts WHERE username = ? AND password = ?', [username, password], function(err, results) {
+		db.query('SELECT customerNumber, password FROM accounts WHERE username = ?', username, function(err, results) {
 			if (err) throw err;
-			if (results.length > 0) {
+			if (results.length > 0 && bcrypt.compareSync(password, results[0].password)) {
 				req.session.loggedin = true;
 				req.session.username = username;
         req.session.accountid = results[0].customerNumber;
@@ -86,6 +90,6 @@ app.post('/login', (req, res) => {
 })
   
 // Server setup
-app.listen(port , ()=>{
+app.listen(port , () => {
     console.log(`Server running on port ${port}.`);
 });

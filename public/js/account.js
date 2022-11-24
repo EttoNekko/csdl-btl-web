@@ -22,7 +22,7 @@ $(document).ready(function() {
 });
 
 async function getData() {
-    const res = await fetch("http://localhost:3000/account", {
+    const res = await fetch("/account", {
         method: 'GET'
     });
     const data = await res.json();
