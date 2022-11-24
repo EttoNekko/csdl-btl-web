@@ -8,13 +8,13 @@ $(document).ready(function() {
     $(".cart button.cartCloser").click(function() {
         $(".miniCart").hide();
     });
+    //create new li for minicart and change the price being show
     $(".buyingWindow .details .confirmButton button:nth-child("+ 1 +")").click(function() {
-        const brandName = $(".buyingWindow .details .description").find("span").eq(0).text();
-        const itemNumber = $(".buyingWindow .details .description").find("span").eq(1).text();
-        let price = $(".buyingWindow .details .description").find("span").eq(2).text();
+        const shoeName = $(".buyingWindow .details .description").find("span").eq(1).text();
+        let price = $(".buyingWindow .details .description p.price").find("span").eq(0).text();
         price = Number(price);
         total += price;
-        $(".miniCart .cart ul").append('<li><p>'+ brandName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> </li>');
+        $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> </li>');
         i++;
         checkEmpty();
         updatePrice();
@@ -27,6 +27,10 @@ $(document).ready(function() {
         i--;
         checkEmpty();
         updatePrice();
+    });
+    //save data using session storage
+    $("a.checkOut").click(function() {
+        sessionStorage.setItem('value', 'bbbbbb');
     });
 
 });

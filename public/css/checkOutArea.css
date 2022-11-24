@@ -21,6 +21,7 @@
     border-spacing: 0;
     border-collapse: collapse;
     margin-bottom: 3em;
+    box-sizing: border-box;
 }
 .products table thead {
     background: #004284;
@@ -33,6 +34,16 @@
     color: #fff !important;
     text-transform: capitalize;
     border-right: 1px solid #ded2d2;
+    box-sizing: inherit;
+}
+
+.products table tbody td {
+    box-sizing: inherit;
+    text-align: center;
+    padding: 7px;
+    font-size: 14px;
+    color: #212121;
+    border: 1px solid #e6e4e4;
 }
 
 .checkOutArea .confirmDetail {
@@ -49,4 +60,14 @@
 }
 .checkOutArea .confirmDetail .information {
     padding: 1em;
+}
+.checkOutArea .confirmDetail .information input{
+    width: 100%;
+    margin: 0 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    box-sizing: border-box;
+    color: black;
+    font-size: 16px;
 }
