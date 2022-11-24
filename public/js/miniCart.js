@@ -1,5 +1,5 @@
-var i = 0;
-var total = 0;
+let i = 0;
+let total = 0;
 $(document).ready(function() {
     $(".right .cart .cart-ico").click(function(){
         $(".miniCart").show();
@@ -9,9 +9,9 @@ $(document).ready(function() {
         $(".miniCart").hide();
     });
     $(".buyingWindow .details .confirmButton button:nth-child("+ 1 +")").click(function() {
-        var brandName = $(".buyingWindow .details .description").find("span").eq(0).text();
-        var itemNumber = $(".buyingWindow .details .description").find("span").eq(1).text();
-        var price = $(".buyingWindow .details .description").find("span").eq(2).text();
+        const brandName = $(".buyingWindow .details .description").find("span").eq(0).text();
+        const itemNumber = $(".buyingWindow .details .description").find("span").eq(1).text();
+        let price = $(".buyingWindow .details .description").find("span").eq(2).text();
         price = Number(price);
         total += price;
         $(".miniCart .cart ul").append('<li><p>'+ brandName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> </li>');
@@ -22,7 +22,7 @@ $(document).ready(function() {
     });
     $(".miniCart .cart ul").on("click", "li div", function() {
         $(this).closest('li').remove();
-        var price = Number($(this).siblings("p.price").find("span").text());
+        const price = Number($(this).siblings("p.price").find("span").text());
         total -=price;
         i--;
         checkEmpty();
