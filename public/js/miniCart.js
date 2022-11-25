@@ -1,4 +1,5 @@
 let i = 0;
+//so san pham trong gio hang
 let total = 0;
 $(document).ready(function() {
     $(".right .cart .cart-ico").click(function(){
@@ -14,8 +15,10 @@ $(document).ready(function() {
         let price = $(".buyingWindow .details .description p.price").find("span").eq(0).text();
         price = Number(price);
         total += price;
-        $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> </li>');
+        $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> <span class="id" style="display: none"></span> </li>');
+        const id = $(".buyingWindow div.data span.id").text();
         i++;
+        $(".miniCart .cart ul li:nth-child("+i+") span.id").text(id);
         checkEmpty();
         updatePrice();
         $(".buyingWindow").hide();
@@ -30,10 +33,10 @@ $(document).ready(function() {
     });
     //save data using session storage
     $("a.checkOut").on("click",function() {
-        sessionStorage.setItem('value', 'bbbbbb');
+        transferId();
     });
     $(".cart .cartFooter").on("click",function() {
-        sessionStorage.setItem('value', 'bbbbbb');
+        transferId();
     });
 
 });
@@ -51,4 +54,14 @@ function checkEmpty() {
 
 function updatePrice() {
     $(".right .cart strong.price").text(''+total+' USD');
+}
+//luu id vao tung bien tang dan trong session storage
+function transferId() {
+    sessionStorage.setItem("i", i);
+    let y = 1;
+    $(".miniCart .cart ul").children("li").each(function() {
+        const id = $(".miniCart .cart ul li:nth-child("+y+") span.id").text();
+        sessionStorage.setItem("arr"+y+"", id);
+        y++;
+    });
 }
