@@ -29,7 +29,10 @@ $(document).ready(function() {
         updatePrice();
     });
     //save data using session storage
-    $("a.checkOut").click(function() {
+    $("a.checkOut").on("click",function() {
+        sessionStorage.setItem('value', 'bbbbbb');
+    });
+    $(".cart .cartFooter").on("click",function() {
         sessionStorage.setItem('value', 'bbbbbb');
     });
 
