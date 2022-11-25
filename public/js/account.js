@@ -4,6 +4,7 @@ $(document).ready(function() {
 
     $("#top .shell #header #navigation ul li.account").click(function() {
         if (id) {
+            $(".logOutWindow").show();
             return;
         } else $(".loginWindow").show();
     });
@@ -13,6 +14,13 @@ $(document).ready(function() {
     });
     $(".loginWindow .action .signUp").click(function() {
         $(".signUpWindow").show();
+    });
+    $(".logOutWindow .logOutPlace .action button.cancelbtn").click(function() {
+        $(".logOutWindow").hide();
+    });
+    //log out button do sumthin
+    $(".logOutWindow .logOutPlace .action button.logOut").click(function() {
+
     });
     $(".signUpWindow .action button.cancelbtn").click(function() {
         $(".signUpWindow").hide();
