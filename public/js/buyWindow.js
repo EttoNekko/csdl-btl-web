@@ -11,6 +11,8 @@ $(document).ready(function() {
         $(".buyingWindow .details .description").find("span").eq(1).text(shoeName);
         $(".buyingWindow .details .description").find("span").eq(2).text(edition);
         $(".buyingWindow .details .description").find("span").eq(3).text(price);
+        const id = $(this).find("div.data").children("span.id").text();
+        $(".buyingWindow div.data span.id").text(id);
         //set color choosing option
         $(".buyingWindow .details .description ul.colorChoose").children().remove();
         $(this).find("div.color").eq(0).children("span").each(function() {
