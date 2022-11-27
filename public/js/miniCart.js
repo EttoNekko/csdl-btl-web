@@ -15,10 +15,15 @@ $(document).ready(function() {
         let price = $(".buyingWindow .details .description p.price").find("span").eq(0).text();
         price = Number(price);
         total += price;
-        $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> <span class="id" style="display: none"></span> </li>');
+        const data = '<div class="data" style="display:none"><span class="id"></span><span class="color"></span><span class="size"></span></div>';
+        $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> '+data+' </li>');
         const id = $(".buyingWindow div.data span.id").text();
+        const color = $(".buyingWindow .details .description ul.colorChoose li.choosen").text();
+        const size = $(".buyingWindow .details .description ul.sizeChoose li.choosen").text();
         i++;
-        $(".miniCart .cart ul li:nth-child("+i+") span.id").text(id);
+        $(".miniCart .cart ul li:nth-child("+i+") div.data span.id").text(id);
+        $(".miniCart .cart ul li:nth-child("+i+") div.data span.color").text(color);
+        $(".miniCart .cart ul li:nth-child("+i+") div.data span.size").text(size);
         checkEmpty();
         updatePrice();
         $(".buyingWindow").hide();
@@ -61,7 +66,11 @@ function transferId() {
     let y = 1;
     $(".miniCart .cart ul").children("li").each(function() {
         const id = $(".miniCart .cart ul li:nth-child("+y+") span.id").text();
-        sessionStorage.setItem("arr"+y+"", id);
+        const color = $(".miniCart .cart ul li:nth-child("+y+") span.color").text();
+        const size = $(".miniCart .cart ul li:nth-child("+y+") span.size").text();
+        sessionStorage.setItem("arr"+y+"1", id);
+        sessionStorage.setItem("arr"+y+"2", color);
+        sessionStorage.setItem("arr"+y+"3", size);
         y++;
     });
 }
