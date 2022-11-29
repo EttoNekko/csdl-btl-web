@@ -19,7 +19,7 @@ $(document).ready(function() {
         $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> '+data+' </li>');
         const id = $(".buyingWindow div.data span.id").text();
         const color = $(".buyingWindow .details .description ul.colorChoose li.choosen").text();
-        const size = $(".buyingWindow .details .description ul.sizeChoose li.choosen").text();
+        const size = $(".buyingWindow .details .description ul.sizeChoose li.choosen").text().substr(0, 2);
         i++;
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.id").text(id);
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.color").text(color);
@@ -37,10 +37,10 @@ $(document).ready(function() {
         updatePrice();
     });
     //save data using session storage
-    $("a.checkOut").on("click",function() {
+    $("a.checkOut").click(function() {
         transferId();
     });
-    $(".cart .cartFooter").on("click",function() {
+    $(".cart .cartFooter").click(function() {
         transferId();
     });
 
@@ -62,15 +62,17 @@ function updatePrice() {
 }
 //luu id vao tung bien tang dan trong session storage
 function transferId() {
-    sessionStorage.setItem("i", i);
-    let y = 1;
-    $(".miniCart .cart ul").children("li").each(function() {
-        const id = $(".miniCart .cart ul li:nth-child("+y+") span.id").text();
-        const color = $(".miniCart .cart ul li:nth-child("+y+") span.color").text();
-        const size = $(".miniCart .cart ul li:nth-child("+y+") span.size").text();
-        sessionStorage.setItem("arr"+y+"1", id);
-        sessionStorage.setItem("arr"+y+"2", color);
-        sessionStorage.setItem("arr"+y+"3", size);
-        y++;
+    const shoesData = [];
+    $(".miniCart .cart ul").children('li').each(function() {
+        const id = $(this).find('span.id').text();
+        const color = $(this).find('span.color').text();
+        const size = $(this).find('span.size').text();
+        const data = { 
+            "id": id,
+            "color": color,
+            "size": size
+        };
+        shoesData.push(data);
     });
+    sessionStorage.setItem("shoesData", JSON.stringify(shoesData));
 }

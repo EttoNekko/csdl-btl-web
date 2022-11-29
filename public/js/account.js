@@ -1,11 +1,21 @@
 $(document).ready(function() {
-    let id;
-    (async() => id = await login(getData))();
+    if (!sessionStorage.getItem('account')) {
+        (async() => {
+            const res = await fetch("/account", {
+                method: 'GET'
+            });
+            const data = await res.json();
+            if (data) {
+                $("#account").text(data.username);
+                sessionStorage.setItem('accountName', data.username);
+                sessionStorage.setItem('account', data.id);
+            }
+        }) ();
+    } else $("#account").text(sessionStorage.getItem('accountName'));
 
     $("#top .shell #header #navigation ul li.account").click(function() {
-        if (id) {
+        if (sessionStorage.getItem('account')) {
             $(".logOutWindow").show();
-            return;
         } else $(".loginWindow").show();
     });
     $(".loginWindow .action button.cancelbtn").click(function() {
@@ -19,8 +29,19 @@ $(document).ready(function() {
         $(".logOutWindow").hide();
     });
     //log out button do sumthin
-    $(".logOutWindow .logOutPlace .action button.logOut").click(function() {
-
+    $(".logOutWindow .logOutPlace .action button.logOut").click(async function() {
+        sessionStorage.removeItem('account');
+        await fetch("/logout", {
+            method: 'GET'
+        });
+        location.reload();
+    });
+    $(".logOutWindow .logOutPlace .action button.update").click(function() {
+        $(".signUpWindow").show();
+        $(".signUpWindow").attr('action', '/update');
+        $(".username").remove();
+        $(".signUpForm input").removeAttr('required');
+        $(".signupbtn").text('Update');
     });
     $(".signUpWindow .action button.cancelbtn").click(function() {
         $(".signUpWindow").hide();
@@ -28,19 +49,3 @@ $(document).ready(function() {
     });
 
 });
-
-async function getData() {
-    const res = await fetch("/account", {
-        method: 'GET'
-    });
-    const data = await res.json();
-    return data;
-}
-
-async function login(getData) {
-    const data = await getData();
-    if(data) {
-        $("#account").text(data.username);
-        return data.id;
-    }
-}
