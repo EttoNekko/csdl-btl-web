@@ -47,6 +47,29 @@ app.get('/logout', (req, res) => {
   res.status(300).send({status: 'sucess'});
 })
 
+app.post('/tabs', (req, res) => {
+  const shoesData = req.body;
+  if(!shoesData) {
+    return res.status(400).send({status: 'failed'});
+  }
+
+  const sql = 'SELECT * FROM shoes INNER JOIN properties USING (shoesID) WHERE shoesID = ?';
+
+  (async() => {
+    const data = [];
+    await db.promise().query(sql, [shoesData.id])
+    .then(([result]) => {
+      for(const key in result) {
+        data.push(result[key]);
+      }
+    })
+
+    return data;
+  })().then((data) => {
+    res.json(data);
+  });
+})
+
 app.post('/shoes', (req, res) => {
   const shoesData = req.body;
   for(const key in shoesData) {
@@ -56,21 +79,21 @@ app.post('/shoes', (req, res) => {
   }
 
   const sql = 'SELECT * FROM shoes INNER JOIN properties USING (shoesID) WHERE shoesID = ? AND color = ? AND size = ?';
-  const data = [];
 
   (async() => {
+    const data = [];
     for(const key in shoesData) {
       await db.promise().query(sql, [shoesData[key].id, shoesData[key].color, shoesData[key].size])
       .then(([result]) => data.push(result[0]));
     }
-  })().then(() => {
+    return data;
+  })().then((data) => {
     res.json(data);
   });
 })
 
 app.post('/register', (req, res) => {
   const data = req.body;
-  console.log(data);
   for(let key in data) {
     if (!data[key]) {
       res.status(400).send({ status: 'failed' })
@@ -82,7 +105,7 @@ app.post('/register', (req, res) => {
   const hashedPass = bcrypt.hashSync(data.password, saltRounds);
   const query1 = [data].map(field => [field.username, field.email, hashedPass]);
   
-  const sql2 = 'INSERT INTO customers (name, phoneNumber, address, creditCard, supportAgent) VALUES (?)';
+  const sql2 = 'INSERT INTO customers (customerNumber, name, phoneNumber, address, creditCard, supportAgent) VALUES (LAST_INSERT_ID(), ?)';
   const hashedCredit = bcrypt.hashSync(data.credit, saltRounds);
   const employeeID = Math.floor(Math.random() * 3 + 1);
   const query2 = [data].map(field => [field.name, field.phone, field.address, hashedCredit, employeeID]);
@@ -114,7 +137,6 @@ app.post('/register', (req, res) => {
 
 app.post('/update', (req, res) => {
   const data = req.body;
-  console.log(data);
   if (!data) {
     return res.status(400).send({ status: 'failed' })
   }
@@ -135,7 +157,6 @@ app.post('/update', (req, res) => {
     await db.promise().query(sql, [data.email])
     .then(([result]) => {
       if (result.length > 0) {
-        console.log(result);
         res.status(400).json({status: 'Email already exists!'});
         throw new Error('err');
       }

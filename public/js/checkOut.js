@@ -6,7 +6,7 @@ $(document).ready(function() {
         $('.checkOutArea .products table tbody').append('<tr> <td><span>'+ 
         this.name + '</span></td> <td>a</td> <td>' +
         'Brand: ' + this.brand + '</br>Shoes type: ' + this.type + '</br>Color: ' + this.color + '</br>Size: ' + this.size + ' US</td> <td>$' + 
-        this.price + '</td> <td>a</td> </tr>');
+        this.price + '</td> <td>x</td> </tr>');
       });
     })();
 
