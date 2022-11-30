@@ -6,9 +6,20 @@ $(document).ready(function() {
         $('.checkOutArea .products table tbody').append('<tr> <td><span>'+ 
         this.name + '</span></td> <td>a</td> <td>' +
         'Brand: ' + this.brand + '</br>Shoes type: ' + this.type + '</br>Color: ' + this.color + '</br>Size: ' + this.size + ' US</td> <td>$' + 
-        this.price + '</td> <td>x</td> </tr>');
+        this.price + '</td> <td class="remove"> <p>X</p> </td> </tr>');
       });
-    })();
+      return data;
+    })()
+    .then((data) => {
+    $('.checkOutArea .products table tbody tr').each(function(index) {
+      const tr = this;
+      $(tr).find('.remove').click(function() {
+        $(tr).remove();
+        data.splice(index, 1);
+      })
+    })
+    
+    });
 
     getInfo();
 });

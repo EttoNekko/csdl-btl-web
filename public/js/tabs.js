@@ -9,6 +9,7 @@ $(document).ready(function() {
 
     $(".tab-content .items li").each(function() {
         const id = $(this).find("span.id").text();
+        $(this).find(".image a img").attr("src", "css/images/" + id + ".png");
         getShoes(id)
         .then((data) => {
             const brandName = data[0].brand;
@@ -18,7 +19,6 @@ $(document).ready(function() {
             $(this).find(".info").html("Brand name: <span>" + brandName + "</span><br />Shoe name: <span>" + shoeName + "</span><br />Edition: <span>" + edition + "</span>");
             $(this).find(".price").html("Wholesale Price: <strong>" + price + "</strong> <strong>USD</strong>");
             const t = this;
-            $(this).find(".image a img").attr("src", "css/images/" + id + ".png");
 
             $(data).each(function() {
                 $(t).find(".color").append("<span>" + this.color + "</span>");
