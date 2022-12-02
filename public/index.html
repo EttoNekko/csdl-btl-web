@@ -12,7 +12,8 @@
 <script src="js/jquery.jcarousel.pack.js" type="text/javascript"></script>
 <script src="js/jquery.slide.js" type="text/javascript"></script>
 <script src="js/jquery-func.js" type="text/javascript"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
 <script src="js/slide.js" type="text/javascript"></script>
 <script src="js/search-bar.js" type="text/javascript"></script>
 <script src="js/tabs.js" type="text/javascript"></script>
@@ -72,6 +73,7 @@
         <h3>You r logged in silly</h3>
         <div class="action">
           <button type="button" class="cancelbtn">Cancel</button>
+          <button type="button" class="update">Update</button>
           <button class="logOut"><a href="javascript:void(0)">Log out</a></button>
         </div>
       </div>
@@ -80,8 +82,8 @@
     <!--Sign up Window-->
     <form class="signUpWindow" action="/register" method="post" style="display:none">
       <div class="signUpForm">
-        <label for="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="username" required>
+        <label class="username" for="username"><b>Username</b></label>
+        <input class="username" type="text" placeholder="Enter Username" name="username" required>
         <label for="email"><b>Email</b></label>
         <input type="email" placeholder="Enter your email" name="email" required>
         <label for="password"><b>Password</b></label>
@@ -109,14 +111,14 @@
   <div class="shell">
     <!-- Search, etc -->
     <div class="options">
-      <div class="search">
+      <!-- <div class="search">
         <form action="#" method="post">
           <span class="field">
           <input type="text" class="blink" value="SEARCH" title="search" />
           </span>
           <input type="text" class="search-submit" value="GO" />
         </form>
-      </div>
+      </div> -->
       <!-- <span class="left"><a href="javascript:void(0)">Advanced Search</a></span> -->
       <div class="right">
         <span class="cart"> <a href="javascript:void(0)" class="cart-ico">&nbsp;</a> <strong class="price">0 USD</strong> </span> 
@@ -150,9 +152,9 @@
           </ul>
           <p>Size: </p> 
           <ul class="sizeChoose">
-            <li class="choosen">small</li>
-            <li>medium</li>
-            <li>big</li>
+            <li class="choosen">9 US</li>
+            <li>10 US</li>
+            <li>11 US</li>
           </ul>
           <p class="price">Price: <span></span> USD</p>
         </div>
@@ -171,9 +173,9 @@
       <!-- Tabs -->
       <div class="tabs">
         <ul>
-          <li><a href="javascript:void(0)" class="active"><span>Safety Shoes</span></a></li>
-          <li><a href="javascript:void(0)"><span>Sport Shoes</span></a></li>
-          <li><a href="javascript:void(0)" class="red"><span>More Shoes</span></a></li>
+          <li><a href="javascript:void(0)" class="active"><span>Casual Shoes</span></a></li>
+          <li><a href="javascript:void(0)"><span>Basketball Shoes</span></a></li>
+          <li><a href="javascript:void(0)" class="red"><span>Running Shoes</span></a></li>
         </ul>
       </div>
       <!-- Tabs -->
@@ -186,107 +188,84 @@
               <div class="cl">&nbsp;</div>
               <ul>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">73</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">83</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image3.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">85</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image4.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">86</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image4.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">87</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image3.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">93</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">95</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">96</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">97</span>
                   </div>
                 </li>
               </ul>
@@ -300,107 +279,156 @@
               <div class="cl">&nbsp;</div>
               <ul>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">70</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">71</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">72</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">76</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">77</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">78</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">79</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">80</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">81</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">82</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">84</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">88</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">90</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">91</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">92</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">94</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">98</span>
                   </div>
                 </li>
               </ul>
@@ -414,211 +442,48 @@
               <div class="cl">&nbsp;</div>
               <ul>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image3.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">74</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image3.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">75</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image3.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">89</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image3.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">99</span>
                   </div>
                 </li>
                 <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image4.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
                   <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image4.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image4.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image4.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image2.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
-                  </div>
-                </li>
-                <li>
-                  <div class="image"> <a href="javascript:void(0)"><img src="css/images/image1.jpg" alt="" /></a> </div>
-                  <p> Brand name: <span>Duy Shoes</span><br />
-                    Shoe name: <span>Duy naixuu</span><br />
-                    Edition: <span>2077</span> </p>
-                  <p class="price">Wholesale Price: <strong>53</strong> <strong>USD</strong></p>
-                  <div class="color" style="display: none">
-                    <span>red</span> <span>blue</span>
-                  </div>
-                  <div class="data" style="display: none">
-                    <span class="id">11111</span>
+                    <span class="id">100</span>
                   </div>
                 </li>
               </ul>

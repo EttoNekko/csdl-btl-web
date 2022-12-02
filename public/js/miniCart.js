@@ -15,8 +15,9 @@ $(document).ready(function() {
         let price = $(".buyingWindow .details .description p.price").find("span").eq(0).text();
         price = Number(price);
         total += price;
+        const quantity = '<div class="quantity"><input type="text" pattern="[0-9]*" value="1" autocomplete="off"></div>';
         const data = '<div class="data" style="display:none"><span class="id"></span><span class="color"></span><span class="size"></span></div>';
-        $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> '+data+' </li>');
+        $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> '+quantity+' <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> '+data+' </li>');
         const id = $(".buyingWindow div.data span.id").text();
         const color = $(".buyingWindow .details .description ul.colorChoose li.choosen").text();
         const size = $(".buyingWindow .details .description ul.sizeChoose li.choosen").text();
@@ -28,7 +29,7 @@ $(document).ready(function() {
         updatePrice();
         $(".buyingWindow").hide();
     });
-    $(".miniCart .cart ul").on("click", "li div", function() {
+    $(".miniCart .cart ul").on("click", "li div.itemRemover", function() {
         $(this).closest('li').remove();
         const price = Number($(this).siblings("p.price").find("span").text());
         total -=price;
@@ -62,15 +63,19 @@ function updatePrice() {
 }
 //luu id vao tung bien tang dan trong session storage
 function transferId() {
-    sessionStorage.setItem("i", i);
-    let y = 1;
-    $(".miniCart .cart ul").children("li").each(function() {
-        const id = $(".miniCart .cart ul li:nth-child("+y+") span.id").text();
-        const color = $(".miniCart .cart ul li:nth-child("+y+") span.color").text();
-        const size = $(".miniCart .cart ul li:nth-child("+y+") span.size").text();
-        sessionStorage.setItem("arr"+y+"1", id);
-        sessionStorage.setItem("arr"+y+"2", color);
-        sessionStorage.setItem("arr"+y+"3", size);
-        y++;
+    const shoesData = [];
+    $(".miniCart .cart ul").children('li').each(function() {
+        const id = $(this).find('span.id').text();
+        const color = $(this).find('span.color').text();
+        const size = $(this).find('span.size').text();
+        //them quantity
+        const quantity = $(this).find('div.quantity input').val();
+        const data = { 
+            "id": id,
+            "color": color,
+            "size": size,
+            "quantity": quantity
+        };
+        shoesData.push(data);
     });
 }

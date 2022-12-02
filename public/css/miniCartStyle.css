@@ -83,9 +83,23 @@
     padding-left: 10px;
     box-sizing: inherit;
     padding-top: 4px;
-} 
+}
+.miniCart .cart ul li div.quantity {
+    width: 11%;
+    float: left;
+}
+.miniCart .cart ul li div.quantity input {
+    width: 30px;
+    height: 18px;
+    padding: 2px 4px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
+    font-size: 13px;
+    text-align: right;
+}
 .miniCart .cart ul li div.itemRemover{
-    width: 6%;
+    width: 5%;
     float: left;
     cursor: pointer;
 } 
@@ -103,7 +117,7 @@
     opacity: 0.70;
 }
 .miniCart .cart ul li p.price{
-    width: 32%;
+    width: 22%;
     float: left;
     text-align: center;
     padding: 0;
