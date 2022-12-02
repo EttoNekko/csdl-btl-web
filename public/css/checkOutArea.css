@@ -1,0 +1,148 @@
+#main.checkOut .shell .checkOutArea {
+    width: 100%;
+    min-height: 300px;
+    padding-top: 20px;
+}
+
+.checkOutArea h3 {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+.checkOutArea h4 {
+    color: black;
+    margin-bottom: 10px;
+    font-size: 19px;
+}
+
+.checkOutArea .products table {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-bottom: 3em;
+    box-sizing: border-box;
+}
+.products table thead {
+    background: #004284;
+}
+.products table thead th {
+    text-align: center;
+    padding: 7px;
+    font-size: 14px;
+    background: #212121;
+    color: #fff !important;
+    text-transform: capitalize;
+    border-right: 1px solid #ded2d2;
+    box-sizing: inherit;
+}
+
+.products table tbody td {
+    box-sizing: inherit;
+    text-align: center;
+    padding: 7px;
+    font-size: 14px;
+    color: #212121;
+    border: 1px solid #e6e4e4;
+    vertical-align: middle;
+    max-width:100%;
+}
+.products table td div.quantity {
+    height: 40px;
+}
+.products table td div.quantity :is(.minus, .plus) {
+    height: 40px;
+    line-height: 24px;
+    width: 40px;
+    margin-right: 3px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    font-size: 22px;
+    font-weight: 200;
+    color: black;
+    background-color: white;
+    border: 1px solid #b2b2b2;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+}
+.products table td div.quantity :is(.minus, .plus):hover {
+    background-color: rgb(214, 212, 212);
+}
+.products table td div.quantity :is(.minus, .plus):before {
+    content: "";
+    width: 13px;
+    height: 2px;
+    background: #000;
+    left: 50%;
+    margin-left: -7px;
+    top: 50%;
+    margin-top: -0.5px;
+    position: absolute;
+}
+.products table td div.quantity .plus:after {
+    content: "";
+    height: 13px;
+    width: 2px;
+    background: #000;
+    left: 50%;
+    margin-left: -1.4px;
+    top: 50%;
+    margin-top: -6.2px;
+    position: absolute;
+}
+.products table td div.quantity div.value {
+    cursor: default;
+    width: 40px;
+    height: 40px;
+    color: #A9A9A9;
+    line-height: 24px;
+    border: 1px solid #E5E5E5;
+    background-color: #E5E5E5;
+    display: inline-block;
+    margin-right: 3px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+}
+.remove p {
+	cursor: pointer;
+	width: 18px;
+    height: 19px;
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    background: #b7b7b7;
+    border: 1px solid #a3a3a3;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 13px;
+    opacity: 0.70;
+}
+
+.checkOutArea .confirmDetail {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.checkOutArea .confirmDetail .total p {
+    font-size: 2em;
+    color: #212121;
+    font-weight: 600;
+    padding: 1em 0;
+    border-top: 1px solid #DDD;
+    border-bottom: 1px solid #DDD;
+}
+.checkOutArea .confirmDetail .information {
+    padding: 1em;
+}
+.checkOutArea .confirmDetail .information input{
+    width: 100%;
+    margin: 0 0 10px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    box-sizing: border-box;
+    color: black;
+    font-size: 16px;
+}

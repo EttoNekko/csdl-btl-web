@@ -1,0 +1,515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Wing the Air</title>
+<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/buyWindowStyle.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/miniCartStyle.css" type="text/css" media="all" />
+<link rel="stylesheet" href="css/loginStyle.css" type="text/css" media="all" />
+<!--[if lte IE 6]><style type="text/css" media="screen">.tabbed { height:420px; }</style><![endif]-->
+<!-- <script src="js/jquery-1.4.1.min.js" type="text/javascript"></script>
+<script src="js/jquery.jcarousel.pack.js" type="text/javascript"></script>
+<script src="js/jquery.slide.js" type="text/javascript"></script>
+<script src="js/jquery-func.js" type="text/javascript"></script> -->
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="js/slide.js" type="text/javascript"></script>
+<script src="js/search-bar.js" type="text/javascript"></script>
+<script src="js/tabs.js" type="text/javascript"></script>
+<script src="js/buyWindow.js" type="text/javascript"></script>
+<script src="js/miniCart.js" type="text/javascript"></script>
+<script src="js/account.js" type="text/javascript"></script>
+</head>
+<body>
+<!-- Top -->
+<div id="top">
+  <div class="shell">
+    <!-- Header -->
+    <div id="header">
+      <h1 id="logo"><a href="javascript:void(0)">Urgan Gear</a></h1>
+      <div id="navigation">
+        <ul>
+          <li><a href="javascript:void(0)">Home</a></li>
+          <li class="account"><a id="account" href="javascript:void(0)">My Account</a></li>
+          <li class="last"><a href="javascript:void(0)">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <!-- End Header -->
+    <!-- Slider -->
+    <div id="slider">
+      <div id="slider-holder">
+        <ul>
+          <li><a href="javascript:void(0)"><img src="css/images/slide1.jpg" alt="" /></a></li>
+          <li><a href="javascript:void(0)"><img src="css/images/slide2.jpg" alt="" /></a></li>
+          <li><a href="javascript:void(0)"><img src="css/images/slide1.jpg" alt="" /></a></li>
+          <li><a href="javascript:void(0)"><img src="css/images/slide2.jpg" alt="" /></a></li>
+          <li><a href="javascript:void(0)"><img src="css/images/slide1.jpg" alt="" /></a></li>
+          <li><a href="javascript:void(0)"><img src="css/images/slide2.jpg" alt="" /></a></li>
+        </ul>
+      </div>
+      <div id="slider-nav"> <a href="#" class="prev">Previous</a> <a href="#" class="next">Next</a> </div>
+    </div>
+    <!-- End Slider -->
+    <!-- login Window-->
+    <form class="loginWindow" action="/login" method="post" style="display:none">
+      <div class="loginForm">
+        <label for="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="username" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <button type="submit">Login</button>
+      </div>
+      <div class="action" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="signUp"><a href="javascript:void(0)">Sign up</a></span>
+      </div>
+    </form>
+    <!-- login Window-->
+    <!-- log out Window-->
+    <div class="logOutWindow" style="display: none">
+      <div class="logOutPlace">
+        <h3>You r logged in silly</h3>
+        <div class="action">
+          <button type="button" class="cancelbtn">Cancel</button>
+          <button type="button" class="update">Update</button>
+          <button class="logOut"><a href="javascript:void(0)">Log out</a></button>
+        </div>
+      </div>
+    </div>
+    <!-- log out Window-->    
+    <!--Sign up Window-->
+    <form class="signUpWindow" action="/register" method="post" style="display:none">
+      <div class="signUpForm">
+        <label class="username" for="username"><b>Username</b></label>
+        <input class="username" type="text" placeholder="Enter Username" name="username" required>
+        <label for="email"><b>Email</b></label>
+        <input type="email" placeholder="Enter your email" name="email" required>
+        <label for="password"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="password" required>
+        <label for="name"><b>Name</b></label>
+        <input type="text" placeholder="Enter your name" name="name" required>
+        <label for="phone"><b>Phone number</b></label>
+        <input type="number" placeholder="Enter your phone number" name="phone" required>
+        <label for="address"><b>Address</b></label>
+        <input type="text" placeholder="Enter your address" name="address" required>
+        <label for="credit"><b>Credit Number</b></label>
+        <input type="number" placeholder="Enter your credit number" name="credit" required>
+      </div>
+      <div class="action" style="background-color:#f1f1f1">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <button type="submit" class="signupbtn">Sign Up</button>
+      </div>
+    </form>
+    <!--Sign up Window-->
+  </div>
+</div>
+<!-- Top -->
+<!-- Main -->
+<div id="main">
+  <div class="shell">
+    <!-- Search, etc -->
+    <div class="options">
+      <!-- <div class="search">
+        <form action="#" method="post">
+          <span class="field">
+          <input type="text" class="blink" value="SEARCH" title="search" />
+          </span>
+          <input type="text" class="search-submit" value="GO" />
+        </form>
+      </div> -->
+      <!-- <span class="left"><a href="javascript:void(0)">Advanced Search</a></span> -->
+      <div class="right">
+        <span class="cart"> <a href="javascript:void(0)" class="cart-ico">&nbsp;</a> <strong class="price">0 USD</strong> </span> 
+        <span class="left more-links"> <a class="checkOut" href="checkOut.html">Checkout</a> </span> 
+      </div>
+    </div>
+    <!-- End Search, etc -->
+    <!--mini cart-->
+    <div class="miniCart" style="display:none">
+      <form class="cart">
+        <button type="button" class="cartCloser">X</button>
+        <ul style="display:none"></ul>
+        <div class="cartFooter">
+          <p>Total: <span></span></p>
+          <a class="checkOut" href="checkOut.html">Check Out</a>
+        </div>
+      </form>
+    </div>
+    <!--mini cart-->
+    <!-- detail buying window -->
+    <div class="buyingWindow" style="display:none">
+      <div class="details">
+        <img>
+        <div class="description">
+          <p>Brand name: <span></span></p>
+          <p>Shoe name: <span></span></p>
+          <p>Edition: <span></span></p>
+          <p>Color: </p>
+          <ul class="colorChoose">
+
+          </ul>
+          <p>Size: </p> 
+          <ul class="sizeChoose">
+            <li class="choosen">9 US</li>
+            <li>10 US</li>
+            <li>11 US</li>
+          </ul>
+          <p class="price">Price: <span></span> USD</p>
+        </div>
+        <div class="confirmButton">
+          <button>Put in cart</button>
+          <button>Cancel</button>
+        </div>
+        <div class="data" style="display: none">
+          <span class="id"></span>
+        </div>
+      </div>
+    </div>
+    <!-- detail buying window -->
+    <!-- Content -->
+    <div id="content">
+      <!-- Tabs -->
+      <div class="tabs">
+        <ul>
+          <li><a href="javascript:void(0)" class="active"><span>Casual Shoes</span></a></li>
+          <li><a href="javascript:void(0)"><span>Basketball Shoes</span></a></li>
+          <li><a href="javascript:void(0)" class="red"><span>Running Shoes</span></a></li>
+        </ul>
+      </div>
+      <!-- Tabs -->
+      <!-- Container -->
+      <div id="container">
+        <div class="tabbed">
+          <!-- First Tab Content -->
+          <div class="tab-content" style="display:block;">
+            <div class="items">
+              <div class="cl">&nbsp;</div>
+              <ul>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">82</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">81</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">73</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">83</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">85</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">86</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">87</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">96</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">97</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+          <!-- End First Tab Content -->
+          <!-- Second Tab Content -->
+          <div class="tab-content" >
+            <div class="items">
+              <div class="cl">&nbsp;</div>
+              <ul>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">70</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">71</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">72</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">76</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">77</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">78</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">79</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">80</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">81</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">82</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">84</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">88</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">90</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">91</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">92</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">94</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">98</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+          <!-- End Second Tab Content -->
+          <!-- Third Tab Content -->
+          <div class="tab-content" >
+            <div class="items">
+              <div class="cl">&nbsp;</div>
+              <ul>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">74</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">75</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">89</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">99</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="image"> <a href="javascript:void(0)"><img  alt="" /></a> </div>
+                  <p class="info"></p>
+                  <p class="price"></p>
+                  <div class="color" style="display: none"> </div>
+                  <div class="data" style="display: none">
+                    <span class="id">100</span>
+                  </div>
+                </li>
+              </ul>
+              <div class="cl">&nbsp;</div>
+            </div>
+          </div>
+          <!-- End Third Tab Content -->
+        </div>
+        <!-- Brands -->
+        <div class="brands">
+          <h3>Brands</h3>
+          <div class="logos"> <a href="javascript:void(0)"><img src="css/images/logo1.gif" alt="" /></a> <a href="javascript:void(0)"><img src="css/images/logo2.gif" alt="" /></a> <a href="javascript:void(0)"><img src="css/images/logo3.gif" alt="" /></a> <a href="javascript:void(0)"><img src="css/images/logo4.gif" alt="" /></a> <a href="javascript:void(0)"><img src="css/images/logo5.gif" alt="" /></a> </div>
+        </div>
+        <!-- End Brands -->
+        <!-- Footer -->
+        <div id="footer">
+          <div class="left"> <a href="javascript:void(0)">Home</a> <span>|</span> <a href="javascript:void(0)">Support</a> <span>|</span> <a href="javascript:void(0)">My Account</a> <span>|</span> <a href="javascript:void(0)">The Store</a> <span>|</span> <a href="javascript:void(0)">Contact</a> </div>
+          <div class="right"> &copy; Sitename.com. Design by <a href="http://chocotemplates.com">ChocoTemplates.com</a> </div>
+        </div>
+        <!-- End Footer -->
+      </div>
+      <!-- End Container -->
+    </div>
+    <!-- End Content -->
+  </div>
+</div>
+<!-- End Main -->
+</body>
+</html>
