@@ -10,7 +10,8 @@
 <script src="js/jquery.jcarousel.pack.js" type="text/javascript"></script>
 <script src="js/jquery.slide.js" type="text/javascript"></script>
 <script src="js/jquery-func.js" type="text/javascript"></script> -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="js/account.js" type="text/javascript"></script>
 <script src="js/slide.js" type="text/javascript"></script>
 <script src="js/checkOut.js" type="text/javascript"></script>
 </head>
@@ -66,13 +67,6 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td><span>a</span></td>
-                  <td>a</td>
-                  <td>a</td>
-                  <td>a</td>
-                  <td>a</td>
-                </tr>
               </tbody>
             </table>
           </div>
@@ -82,9 +76,9 @@
             </div>
             <div class="information">
               <h3>Your information</h3>
-              <h4>Your name: <span></span></h4>
-              <h4>Phone number: <span></span></h4>
-              <h4>Address: <span></span></h4>
+              <h4 id="name">Name: <span></span></h4>
+              <h4 id="phone">Phone number: <span></span></h4>
+              <h4 id="address">Address: <span></span></h4>
               <h4>Required date: </h4>
               <input type="text" placeholder="When u want shoe?" name="reqDate" required>
             </div>

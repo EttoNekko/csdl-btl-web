@@ -20,7 +20,7 @@ $(document).ready(function() {
         $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> '+quantity+' <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> '+data+' </li>');
         const id = $(".buyingWindow div.data span.id").text();
         const color = $(".buyingWindow .details .description ul.colorChoose li.choosen").text();
-        const size = $(".buyingWindow .details .description ul.sizeChoose li.choosen").text();
+        const size = $(".buyingWindow .details .description ul.sizeChoose li.choosen").text().substr(0, 2);
         i++;
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.id").text(id);
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.color").text(color);
@@ -38,10 +38,10 @@ $(document).ready(function() {
         updatePrice();
     });
     //save data using session storage
-    $("a.checkOut").on("click",function() {
+    $("a.checkOut").click(function() {
         transferId();
     });
-    $(".cart .cartFooter").on("click",function() {
+    $(".cart .cartFooter").click(function() {
         transferId();
     });
 
@@ -78,4 +78,5 @@ function transferId() {
         };
         shoesData.push(data);
     });
+    sessionStorage.setItem("shoesData", JSON.stringify(shoesData));
 }
