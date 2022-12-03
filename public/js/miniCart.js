@@ -43,9 +43,14 @@ $(document).ready(function() {
         var current = $(this).val();
         let price = Number($(this).parents('li').eq(0).find('p.price span').first().text());
         total-=price;
-        price = price/prev *current;
-        $(this).parents('li').eq(0).find('p.price span').first().text(price);
-        total+=price;
+        if(current<=0) {
+            $(this).parents('li').eq(0).remove();
+            i--;
+        } else {
+            price = price/prev *current;
+            $(this).parents('li').eq(0).find('p.price span').first().text(price);
+            total+=price;
+        }
         checkEmpty();
         updatePrice();
     });
