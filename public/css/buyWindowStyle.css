@@ -34,8 +34,73 @@
     margin: 20px;
     line-height: 1.5;
     color:black;
-    
 }
+.buyingWindow .details .description p.price {
+    float: left;
+    font-size: 23px;
+    font-weight: 300;
+    margin-top: 10px;
+}
+.buyingWindow .details .description div.quantity {
+    float: right;
+}
+.buyingWindow .details .description div.quantity :is(.minus, .plus) {
+    height: 40px;
+    line-height: 24px;
+    width: 40px;
+    margin-right: 3px;
+    display: inline-block;
+    cursor: pointer;
+    position: relative;
+    font-size: 22px;
+    font-weight: 200;
+    color: black;
+    background-color: white;
+    border: 1px solid #b2b2b2;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+}
+.buyingWindow .details .description div.quantity :is(.minus, .plus):hover {
+    background-color: rgb(214, 212, 212);
+}
+.buyingWindow .details .description div.quantity :is(.minus, .plus):before {
+    content: "";
+    width: 13px;
+    height: 2px;
+    background: #000;
+    left: 50%;
+    margin-left: -7px;
+    top: 50%;
+    margin-top: -0.5px;
+    position: absolute;
+}
+.buyingWindow .details .description div.quantity .plus:after {
+    content: "";
+    height: 13px;
+    width: 2px;
+    background: #000;
+    left: 50%;
+    margin-left: -1.4px;
+    top: 50%;
+    margin-top: -6.2px;
+    position: absolute;
+}
+.buyingWindow .details .description div.quantity div.value {
+    cursor: default;
+    width: 40px;
+    height: 40px;
+    color: #A9A9A9;
+    line-height: 24px;
+    border: 1px solid #E5E5E5;
+    background-color: #E5E5E5;
+    display: inline-block;
+    margin-right: 3px;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 40px;
+}
+
 .buyingWindow .details .confirmButton {
     grid-area: confirmButton;
     position: absolute;

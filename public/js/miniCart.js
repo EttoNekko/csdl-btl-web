@@ -15,20 +15,46 @@ $(document).ready(function() {
         let price = $(".buyingWindow .details .description p.price").find("span").eq(0).text();
         price = Number(price);
         total += price;
-        const quantity = '<div class="quantity"><input type="text" pattern="[0-9]*" value="1" autocomplete="off"></div>';
+        const quantity = '<div class="quantity"><input class="numeric" type="text" pattern="[0-9]*" value="1" autocomplete="off"></div>';
         const data = '<div class="data" style="display:none"><span class="id"></span><span class="color"></span><span class="size"></span></div>';
         $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> '+quantity+' <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> '+data+' </li>');
         const id = $(".buyingWindow div.data span.id").text();
         const color = $(".buyingWindow .details .description ul.colorChoose li.choosen").text();
         const size = $(".buyingWindow .details .description ul.sizeChoose li.choosen").text().substr(0, 2);
+        const num = $(".buyingWindow .details .description div.quantity div.value").text();
         i++;
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.id").text(id);
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.color").text(color);
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.size").text(size);
+        $(".miniCart .cart ul li:nth-child("+i+") div.quantity input").val(num);
         checkEmpty();
         updatePrice();
         $(".buyingWindow").hide();
     });
+    //allow only number in input
+    $(".miniCart .cart ul").on("input", "li div.quantity input.numeric", function() {
+        this.value = this.value.replace(/\D/g,'');
+    });
+    //change price when quantity change
+    $(".miniCart .cart ul").on('focusin', 'li div.quantity input', function(){
+        $(this).data('val', $(this).val());
+    }).on('change','input', function(){
+        var prev = $(this).data('val');
+        var current = $(this).val();
+        let price = Number($(this).parents('li').eq(0).find('p.price span').first().text());
+        total-=price;
+        if(current<=0) {
+            $(this).parents('li').eq(0).remove();
+            i--;
+        } else {
+            price = price/prev *current;
+            $(this).parents('li').eq(0).find('p.price span').first().text(price);
+            total+=price;
+        }
+        checkEmpty();
+        updatePrice();
+    });
+    //remove item from cart
     $(".miniCart .cart ul").on("click", "li div.itemRemover", function() {
         $(this).closest('li').remove();
         const price = Number($(this).siblings("p.price").find("span").text());
