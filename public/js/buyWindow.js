@@ -11,6 +11,7 @@ $(document).ready(function() {
         $(".buyingWindow .details .description").find("span").eq(1).text(shoeName);
         $(".buyingWindow .details .description").find("span").eq(2).text(edition);
         $(".buyingWindow .details .description").find("span").eq(3).text(price);
+        $(".buyingWindow .details .description div.quantity div.value").text(1)
         const id = $(this).find("div.data").children("span.id").text();
         $(".buyingWindow div.data span.id").text(id);
         //set color choosing option
@@ -22,6 +23,25 @@ $(document).ready(function() {
         $(".buyingWindow .details .description ul li:nth-child("+ 1 +")").addClass("choosen").siblings().removeClass("choosen");
         $(".buyingWindow").show();
     })
+
+    $('.buyingWindow .details .description div.quantity div.minus').click(function() {
+        let price = Number($(".buyingWindow .details .description").find("span").eq(3).text());
+        let num = Number($(".buyingWindow .details .description div.quantity div.value").text());
+        if(num!=1) {
+            price = price-price/num;
+            num-=1;
+            $(".buyingWindow .details .description").find("span").eq(3).text(price);
+            $(".buyingWindow .details .description div.quantity div.value").text(num);
+        };
+    });
+    $('.buyingWindow .details .description div.quantity div.plus').click(function() {
+        let price = Number($(".buyingWindow .details .description").find("span").eq(3).text());
+        let num = Number($(".buyingWindow .details .description div.quantity div.value").text());
+        price = price+price/num;
+        num+=1;
+        $(".buyingWindow .details .description").find("span").eq(3).text(price);
+        $(".buyingWindow .details .description div.quantity div.value").text(num);
+    });
 
     $(".buyingWindow .details .confirmButton button:nth-child("+ 2 +")").click(function() {
         $(".buyingWindow").hide();
