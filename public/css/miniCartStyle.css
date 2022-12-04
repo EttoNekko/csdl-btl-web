@@ -88,7 +88,7 @@
     width: 11%;
     float: left;
 }
-.miniCart .cart ul li div.quantity input {
+.miniCart .cart ul li div.quantity p {
     width: 30px;
     height: 18px;
     padding: 2px 4px;
@@ -96,7 +96,7 @@
     border-radius: 4px;
     box-shadow: inset 0 1px 1px rgb(0 0 0 / 8%);
     font-size: 13px;
-    text-align: right;
+    text-align: center;
 }
 .miniCart .cart ul li div.itemRemover{
     width: 5%;

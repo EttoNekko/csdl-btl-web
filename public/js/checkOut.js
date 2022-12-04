@@ -43,6 +43,14 @@ $(document).ready(function() {
         updatePrice();
       });
     });
+    //nut confirm phai log in
+    $('.checkOutArea .confirmDetail .total button').click(function() {
+      if(!sessionStorage.getItem('account')) {
+        alert('log in pls honeyyy');
+      } else {
+        //do sumthing query
+      }
+    });
 
     getInfo();
 });
