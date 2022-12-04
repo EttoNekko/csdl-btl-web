@@ -27,6 +27,8 @@ app.get('/account', (req, res) => {
       username: req.session.username,
       id: req.session.accountID
     });
+  } else {
+    res.status(300).send();
   }
 })
 
@@ -37,6 +39,8 @@ app.get('/accountInfo/', (req, res) => {
       if (err) throw err;
       res.json(result[0]);
     })
+  } else {
+    res.status(300).send();
   }
 })
 
@@ -187,7 +191,7 @@ app.post('/login', (req, res) => {
 				req.session.loggedin = true;
 				req.session.username = username;
         req.session.accountID = result[0].customerNumber;
-				res.redirect('/');
+				res.redirect('back');
 			} else {
 				res.send('Incorrect Username and/or Password!');
 			}			
@@ -196,6 +200,39 @@ app.post('/login', (req, res) => {
 		res.send('Please enter Username and Password!');
 		res.end();
 	}
+})
+
+app.post('/order', function(req, res) {
+  const data = req.body;
+  if (!data) {
+    return res.result(400).send({status: "failed"});
+  }
+  
+  const sql1 = "INSERT INTO orders (customerNumber, orderDate, requiredDate) VALUES (?, CURDATE(), COALESCE(?, CURDATE() + 7))";
+  const sql2 = "INSERT INTO orderdetails (orderNumber, shoesPropety, quantityOrdered) VALUES (LAST_INSERT_ID(), ?)";
+  const sql3 = "UPDATE properties SET quantityInStock = quantityInStock - ? WHERE id = ? AND quantityInStock > 0";
+  const sql = "INSERT INTO payments (customerNumber, paymentDate, amount) VALUES(?, CURDATE(), ?)";
+
+  (async() => {
+    const requiredDate = data.requiredDate ? data.requiredDate : undefined;
+    await db.promise().query(sql1, [req.session.accountID, requiredDate], function(err) {
+      if (err) throw err;
+    })
+    .then(() => {
+      for (const key in data.shoes) {
+        db.query(sql2, [[data.shoes[key].id, data.shoes[key].quantity]], function(err) {
+          if(err) throw err;
+        });
+        db.query(sql3, [data.shoes[key].quantity, data.shoes[key].id], function(err) {
+          if (err) throw err;
+        })
+      }
+    })
+  }) ();
+
+  db.query(sql, [req.session.accountID, data.amount], function(err) {
+    if(err) throw err;
+  })
 })
   
 // Server setup
