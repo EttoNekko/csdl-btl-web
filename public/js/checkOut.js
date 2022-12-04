@@ -51,16 +51,19 @@ $(document).ready(function() {
         alert("Out of stock!");
       }
     });
-    
+    //nut confirm phai log in
     $('#confirm').click(function() {
-      const order = {
-        shoes: data,
-        amount: $('#amount').text(),
-        requiredDate: $('#requiredDate').val()
-      };
-      placeOrder(order);
-    })
-
+      if(!sessionStorage.getItem('account')) {
+        alert('log in pls honeyyy');
+      } else {
+        const order = {
+          shoes: data,
+          amount: $('#amount').text(),
+          requiredDate: $('#requiredDate').val()
+        };
+        placeOrder(order);
+      }
+    });
   });
     getInfo();
 });

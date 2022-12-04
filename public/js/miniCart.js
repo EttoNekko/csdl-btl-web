@@ -15,7 +15,7 @@ $(document).ready(function() {
         let price = $(".buyingWindow .details .description p.price").find("span").eq(0).text();
         price = Number(price);
         total += price;
-        const quantity = '<div class="quantity"><input class="numeric" type="text" pattern="[0-9]*" value="1" autocomplete="off"></div>';
+        const quantity = '<div class="quantity"><p></p></div>';
         const data = '<div class="data" style="display:none"><span class="id"></span><span class="color"></span><span class="size"></span></div>';
         $(".miniCart .cart ul").append('<li><p>'+ shoeName +'</p> '+quantity+' <div class="itemRemover"><p>X</p></div> <p class="price"><span>'+price+'</span> USD</p> '+data+' </li>');
         const id = $(".buyingWindow div.data span.id").text();
@@ -26,7 +26,7 @@ $(document).ready(function() {
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.id").text(id);
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.color").text(color);
         $(".miniCart .cart ul li:nth-child("+i+") div.data span.size").text(size);
-        $(".miniCart .cart ul li:nth-child("+i+") div.quantity input").val(num);
+        $(".miniCart .cart ul li:nth-child("+i+") div.quantity p").text(num);
         checkEmpty();
         updatePrice();
         $(".buyingWindow").hide();
@@ -64,11 +64,21 @@ $(document).ready(function() {
         updatePrice();
     });
     //save data using session storage
-    $("a.checkOut").click(function() {
-        transferId();
+    $("a.checkOut").click(function(e) {
+        if(i!=0) {
+            transferId();
+        } else {
+            e.preventDefault();
+            alert('No give us money?');
+        }
     });
     $(".cart .cartFooter").click(function() {
-        transferId();
+        if(i!=0) {
+            transferId();
+        } else {
+            e.preventDefault();
+            alert('No give us money?');
+        }
     });
 
 });
@@ -95,7 +105,7 @@ function transferId() {
         const color = $(this).find('span.color').text();
         const size = $(this).find('span.size').text();
         //them quantity
-        const quantity = +$(this).find('div.quantity input').val();
+        const quantity = +$(this).find('div.quantity p').text();
         const data = { 
             "id": id,
             "color": color,
