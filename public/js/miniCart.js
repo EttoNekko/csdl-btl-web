@@ -105,7 +105,7 @@ function transferId() {
         const color = $(this).find('span.color').text();
         const size = $(this).find('span.size').text();
         //them quantity
-        const quantity = $(this).find('div.quantity input').val();
+        const quantity = +$(this).find('div.quantity p').text();
         const data = { 
             "id": id,
             "color": color,

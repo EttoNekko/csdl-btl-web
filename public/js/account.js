@@ -4,8 +4,10 @@ $(document).ready(function() {
             const res = await fetch("/account", {
                 method: 'GET'
             });
-            const data = await res.json();
-            if (data) {
+            if (!res.ok) {
+                return;
+            } else {
+                const data = await res.json();
                 $("#account").text(data.username);
                 sessionStorage.setItem('accountName', data.username);
                 sessionStorage.setItem('account', data.id);
@@ -30,6 +32,7 @@ $(document).ready(function() {
     });
     //log out button do sumthin
     $(".logOutWindow .logOutPlace .action button.logOut").click(async function() {
+        sessionStorage.removeItem('accountName');
         sessionStorage.removeItem('account');
         await fetch("/logout", {
             method: 'GET'
