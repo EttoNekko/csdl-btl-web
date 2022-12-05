@@ -15,6 +15,7 @@ $(document).ready(function() {
         this.quantity = quantity;
       });
       updatePrice();
+      checkStock();
       return data;
     })()
     .then((data) => {
@@ -41,6 +42,7 @@ $(document).ready(function() {
     $('.plus').click(function() {
       let num = Number($(this).siblings('div.value').eq(0).text());
       const index = $('.plus').index(this);
+      if (quantity < data[index].quantityInStock) {
         let price = Number($(this).parents('tr').eq(0).find('span.price').text());
         price += price/num;
         $(this).parents('tr').eq(0).find('span.price').text(''+price+'');
@@ -49,6 +51,7 @@ $(document).ready(function() {
         $(this).siblings('div.value').eq(0).text(''+ num +'');
         updatePrice();
         checkStock();
+      }
     });
     //nut confirm phai log in
     $('#confirm').click(function() {
