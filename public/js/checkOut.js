@@ -6,7 +6,8 @@ $(document).ready(function() {
       $(data).each(function(index) {
         //cho quantity trang trc vao day
         const quantity = arr[index].quantity;
-        const quantityDiv ='<div class="quantity"> <div class="minus"></div> <div class="value">' + quantity + '</div> <div class="plus"></div></div>';
+        const quantityInStock = this.quantityInStock;
+        const quantityDiv ='<div class="quantity"> <div class="minus"></div> <div class="value">' + quantity + '</div> <div class="plus"></div> <p class="warning" style="display:none">In Stock: <span>'+ quantityInStock +'</span></p></div>';
         $('.checkOutArea .products table tbody').append('<tr> <td><span>'+ 
         this.name + '</span></td> <td>'+quantityDiv+'</td> <td>' +
         'Brand: ' + this.brand + '</br>Shoes type: ' + this.type + '</br>Color: ' + this.color + '</br>Size: ' + this.size + ' US</td> <td>$<span class="price">' + 
@@ -33,13 +34,13 @@ $(document).ready(function() {
           data[$('.minus').index(this)].quantity = num;
           $(this).siblings('div.value').eq(0).text(''+ num +'');
           updatePrice();
+          checkStock();
         }
       });
 
     $('.plus').click(function() {
       let num = Number($(this).siblings('div.value').eq(0).text());
       const index = $('.plus').index(this);
-      if (num < data[index].quantityInStock) {
         let price = Number($(this).parents('tr').eq(0).find('span.price').text());
         price += price/num;
         $(this).parents('tr').eq(0).find('span.price').text(''+price+'');
@@ -47,15 +48,14 @@ $(document).ready(function() {
         data[index].quantity = num;
         $(this).siblings('div.value').eq(0).text(''+ num +'');
         updatePrice();
-      } else {
-        alert("Out of stock!");
-      }
+        checkStock();
     });
     //nut confirm phai log in
     $('#confirm').click(function() {
       if(!sessionStorage.getItem('account')) {
         alert('log in pls honeyyy');
-      } else {
+      } else if(!checkStock()) alert('Not enough shoes');
+      else {
         const order = {
           shoes: data,
           amount: $('#amount').text(),
@@ -67,7 +67,7 @@ $(document).ready(function() {
   });
     getInfo();
 });
-
+//kiểm tra giá
 function updatePrice() {
   let total = 0;
   $('.checkOutArea .products tbody tr td').children('span.price').each(function() {
@@ -75,6 +75,21 @@ function updatePrice() {
     total += price;
   });
   $('.checkOutArea .confirmDetail .total span').text(''+total+'');
+}
+//kiểm tra quan từng row một
+function checkStock() {
+  let gud = true;
+  $('.checkOutArea .products tbody tr td').find('div.quantity').each(function() {
+    const quantity = Number($(this).find('div.value').first().text());
+    const quantityInStock = Number($(this).find('p.warning span').first().text());
+    if(quantity > quantityInStock) {
+      $(this).find('p.warning').first().show();
+      gud = false;
+    } else {
+      $(this).find('p.warning').first().hide();
+    };
+  });
+  return gud;
 }
 
 async function getShoes(shoesData) {

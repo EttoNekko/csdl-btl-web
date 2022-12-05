@@ -32,6 +32,7 @@
     box-sizing: border-box;
     column-width: auto;
     background-color: white;
+    max-height: 100%;
 }
 .products table thead {
     background: #004284;
@@ -56,9 +57,12 @@
     border: 1px solid #e6e4e4;
     vertical-align: middle;
     max-width:100%;
+    height: max-content;
 }
 .products table td div.quantity {
-    height: 40px;
+    min-height: 40px;
+    max-height: fit-content;
+    margin: 3px;
 }
 .products table td div.quantity :is(.minus, .plus) {
     height: 40px;
@@ -107,7 +111,6 @@
     width: 40px;
     height: 40px;
     color: #A9A9A9;
-    line-height: 24px;
     border: 1px solid #E5E5E5;
     background-color: #E5E5E5;
     display: inline-block;
@@ -116,6 +119,12 @@
     vertical-align: middle;
     line-height: 40px;
 }
+.products table td div.quantity p.warning {
+    color: red;
+    margin-top: 10px;
+    font-size: 23px;
+}
+
 .remove p {
 	cursor: pointer;
 	width: 18px;
