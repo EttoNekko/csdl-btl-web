@@ -7,11 +7,12 @@ $(document).ready(function() {
         //cho quantity trang trc vao day
         const quantity = arr[index].quantity;
         const quantityInStock = this.quantityInStock;
+        const price = this.price * quantity;
         const quantityDiv ='<div class="quantity"> <div class="minus"></div> <div class="value">' + quantity + '</div> <div class="plus"></div> <p class="warning" style="display:none">In Stock: <span>'+ quantityInStock +'</span></p></div>';
         $('.checkOutArea .products table tbody').append('<tr> <td><span>'+ 
         this.name + '</span></td> <td>'+quantityDiv+'</td> <td>' +
         'Brand: ' + this.brand + '</br>Shoes type: ' + this.type + '</br>Color: ' + this.color + '</br>Size: ' + this.size + ' US</td> <td>$<span class="price">' + 
-        this.price + '</span></td> <td class="remove"> <p>X</p> </td> </tr>');
+        price + '</span></td> <td class="remove"> <p>X</p> </td> </tr>');
         this.quantity = quantity;
       });
       updatePrice();
