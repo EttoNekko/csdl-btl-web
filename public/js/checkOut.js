@@ -43,7 +43,7 @@ $(document).ready(function() {
     $('.plus').click(function() {
       let num = Number($(this).siblings('div.value').eq(0).text());
       const index = $('.plus').index(this);
-      if (quantity < data[index].quantityInStock) {
+      if (num < data[index].quantityInStock) {
         let price = Number($(this).parents('tr').eq(0).find('span.price').text());
         price += price/num;
         $(this).parents('tr').eq(0).find('span.price').text(''+price+'');
@@ -56,10 +56,11 @@ $(document).ready(function() {
     });
     //nut confirm phai log in
     $('#confirm').click(function() {
-      if(!sessionStorage.getItem('account')) {
-        alert('log in pls honeyyy');
-      } else if(!checkStock()) alert('Not enough shoes');
-      else {
+      if (!checkStock()) {
+        alert("Out of stock!");
+      } else if(!sessionStorage.getItem('account')) {
+        alert("Please log in to continue");
+      } else {
         const order = {
           shoes: data,
           amount: $('#amount').text(),
@@ -105,7 +106,6 @@ async function getShoes(shoesData) {
     body: shoesData
   });
   const data = await res.json();
-  console.log(data);
   return data;
 }
 
