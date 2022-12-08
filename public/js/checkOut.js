@@ -113,9 +113,7 @@ async function getInfo() {
   const res = await fetch('/accountInfo', {
     method: 'GET'
   });
-  if (!res.ok) {
-    return;
-  } else {
+  if (res.ok) {
     const data = await res.json();
     $('#name').text('Name: ' + data.name);
     $('#phone').text('Phone Number: ' + data.phoneNumber);

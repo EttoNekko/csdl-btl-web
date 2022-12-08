@@ -4,9 +4,7 @@ $(document).ready(function() {
             const res = await fetch("/account", {
                 method: 'GET'
             });
-            if (!res.ok) {
-                return;
-            } else {
+            if (res.ok) {
                 const data = await res.json();
                 $("#account").text(data.username);
                 sessionStorage.setItem('accountName', data.username);
