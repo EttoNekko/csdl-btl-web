@@ -28,7 +28,7 @@ app.get('/account', (req, res) => {
       id: req.session.accountID
     });
   } else {
-    res.status(300).send();
+    res.status(400).send();
   }
 })
 
@@ -40,7 +40,7 @@ app.get('/accountInfo/', (req, res) => {
       res.json(result[0]);
     })
   } else {
-    res.status(300).send();
+    res.status(400).send();
   }
 })
 
