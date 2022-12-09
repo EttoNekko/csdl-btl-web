@@ -9,7 +9,7 @@ $(document).ready(function() {
                 if(data) {
                 $("#account").text(data.username);
                 sessionStorage.setItem('accountName', data.username);
-                sessionStorage.setItem('account', data.id);
+                sessionStorage.setItem('account', data.accountID);
             }
         }) ();
     } else $("#account").text(sessionStorage.getItem('accountName'));
@@ -33,6 +33,7 @@ $(document).ready(function() {
     $(".logOutWindow .logOutPlace .action button.logOut").click(async function() {
         sessionStorage.removeItem('accountName');
         sessionStorage.removeItem('account');
+        $("#account").text('My Account');
         await fetch("/logout", {
             method: 'GET'
         });
