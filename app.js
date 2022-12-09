@@ -21,7 +21,7 @@ app.get('/' , (req, res) => {
     res.render('index.html');
 })
 
-app.get('/account', (req, res) => {
+app.get('/accounts', (req, res) => {
   if (req.session.loggedin) {
     res.json({
       username: req.session.username,
@@ -38,7 +38,8 @@ app.get('/accountInfo/', (req, res) => {
     db.query(sql, [req.session.accountID], function(err, result) {
       if (err) throw err;
       res.json(result[0]);
-    })
+    });
+    res.redirect('/');
   } else {
     res.status(400).send();
   }
@@ -131,7 +132,7 @@ app.post('/register', (req, res) => {
         } else {
           db.query(sql2, query2, function(err) {
             if (err) throw err;
-            res.redirect('/');
+            res.redirect('back');
           });
         }
       });
@@ -173,7 +174,7 @@ app.post('/update', (req, res) => {
       } else {
         db.query(sql2, [data.name, data.phone, data.address, hashedCredit, req.session.accountID], function(err) {
           if (err) throw err;
-          res.redirect('/');
+          res.redirect('back');
         });
       }
     });

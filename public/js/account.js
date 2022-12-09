@@ -1,17 +1,21 @@
 $(document).ready(function() {
-    if (!sessionStorage.getItem('account')) {
-        (async() => {
-            const res = await fetch('/account', {
-                method: 'GET'
-            });
-            if (res.ok) {
-                const data = await res.json();
-                $("#account").text(data.username);
-                sessionStorage.setItem('accountName', data.username);
-                sessionStorage.setItem('account', data.accountID);
-            }
-        }) ();
-    } else $("#account").text(sessionStorage.getItem('accountName'));
+    
+    if (sessionStorage.getItem('account')) $("#account").text(sessionStorage.getItem('accountName'));
+    $('.loginWindow .loginForm button').click(function() {
+        if (!sessionStorage.getItem('account')) {
+            (async() => {
+                const res = await fetch('/accounts', {
+                    method: 'GET'
+                });
+                if (res.ok) {
+                    const data = await res.json();
+                    $("#account").text(data.username);
+                    sessionStorage.setItem('accountName', data.username);
+                    sessionStorage.setItem('account', data.id);
+                }
+            }) ();
+        } else $("#account").text(sessionStorage.getItem('accountName'));
+    });
 
     $("#top .shell #header #navigation ul li.account").click(function() {
         if (sessionStorage.getItem('account')) {
