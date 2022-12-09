@@ -27,8 +27,6 @@ app.get('/accounts', (req, res) => {
       username: req.session.username,
       id: req.session.accountID
     });
-  } else {
-    res.status(400).send();
   }
 })
 
@@ -39,7 +37,6 @@ app.get('/accountInfo/', (req, res) => {
       if (err) throw err;
       res.json(result[0]);
     });
-    res.redirect('/');
   } else {
     res.status(400).send();
   }
@@ -48,6 +45,7 @@ app.get('/accountInfo/', (req, res) => {
 app.get('/logout', (req, res) => {
   req.session.destroy(err => {
     if(err) throw err;
+    res.redirect('back');
   });
   res.status(300).send({status: 'sucess'});
 })
