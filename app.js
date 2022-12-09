@@ -21,14 +21,12 @@ app.get('/' , (req, res) => {
     res.render('index.html');
 })
 
-app.get('/account', (req, res) => {
+app.get('/accounts', (req, res) => {
   if (req.session.loggedin) {
     res.json({
       username: req.session.username,
       id: req.session.accountID
     });
-  } else {
-    res.status(400).send();
   }
 })
 

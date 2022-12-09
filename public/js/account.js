@@ -1,11 +1,12 @@
 $(document).ready(function() {
     if (!sessionStorage.getItem('account')) {
         (async() => {
-            const res = await fetch("/account", {
+            const res = await fetch("/accounts", {
                 method: 'GET'
             });
-            if (res.ok) {
+            
                 const data = await res.json();
+                if(data) {
                 $("#account").text(data.username);
                 sessionStorage.setItem('accountName', data.username);
                 sessionStorage.setItem('account', data.id);
